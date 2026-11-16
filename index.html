@@ -189,6 +189,10 @@
     .venue-iclr { background: #23863618; color: #3fb950; border: 1px solid #23863635; }
     .venue-interspeech { background: #1f6feb18; color: #58a6ff; border: 1px solid #1f6feb35; }
     .venue-neurips { background: #a371f718; color: #bc8cff; border: 1px solid #a371f735; }
+    .venue-conll { background: #d2992218; color: #e3b341; border: 1px solid #d2992235; }
+    .venue-preprint { background: #8b949e18; color: #c9d1d9; border: 1px solid #8b949e35; }
+    .pub-subheading { list-style: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #8b949e; margin: 1.2rem 0 0.2rem; }
     .pub-title {
       font-size: 1.02rem; font-weight: 600; color: #f0f6fc;
       margin-bottom: 0.35rem; line-height: 1.55;
@@ -364,7 +368,7 @@
     <h2 class="section-heading">About</h2>
     <div class="about-text">
       <p>
- I am a PhD researcher at the Max Planck Institute for Software Systems, working at the intersection of speech & language modeling and computational neuroscience. My research aims to make better computational models of speech processing in the brain and investigate how brain data could also be utilised to improve pretrained models. I have done previous work on brain-tuning  (speech models on human fMRI responses), showing that it can improve semantic representations, model-brain alignment, and cross-participant generalization. My current research projects investigate efficient brain-tuning on large-scale datasets and how to use these improved models to automatically test hypotheses and discover mechanisms on how the brain organizes language processing.
+ I am a PhD researcher at the Max Planck Institute for Software Systems, working at the intersection of speech & language modeling and computational neuroscience. My research aims to make better computational models of speech processing in the brain and investigate how brain data could also be utilised to improve pretrained models. I have done previous work on brain-tuning (speech models on human fMRI responses), showing that it can improve semantic representations, model-brain alignment, and cross-participant generalization. Most recently, I built <strong>RABBiT</strong> (NeurIPS 2026), a compact audio-to-fMRI foundation model that predicts speech-evoked brain responses of unseen participants zero-shot and adapts to a new person with about 10 minutes of data. My current research projects investigate efficient brain-tuning on large-scale datasets and how to use these improved models to automatically test hypotheses and discover mechanisms on how the brain organizes language processing.
       </p>
       <p style="margin-top:1rem;">
         I am broadly interested in representation learning, speech processing, natural language understanding,
@@ -372,6 +376,7 @@
       </p>
     </div>
     <div class="research-interests">
+      <span class="interest-tag">Brain Foundation Models</span>
       <span class="interest-tag">Brain-Aligned ML</span>
       <span class="interest-tag">Speech Processing</span>
       <span class="interest-tag">Computational Neuroscience</span>
@@ -387,6 +392,26 @@
   <div class="container fade-in">
     <h2 class="section-heading">News</h2>
     <ul class="news-list">
+      <li class="news-item">
+        <div class="news-date">Oct 2026</div>
+        <div class="news-content">Gave an invited talk and visited the <strong>University of Oxford</strong>.</div>
+      </li>
+      <li class="news-item">
+        <div class="news-date">Oct 2026</div>
+        <div class="news-content">New preprint &mdash; <em>SCRIBE: Scalable Contextual Representations of Interpretable Brain-Grounded Semantics</em>.</div>
+      </li>
+      <li class="news-item">
+        <div class="news-date">2026</div>
+        <div class="news-content">Paper accepted at <strong>NeurIPS 2026</strong> &mdash; <em>RABBiT: a rapidly adaptive BOLD foundation model for zero-shot and few-shot prediction of speech-elicited brain responses</em>.</div>
+      </li>
+      <li class="news-item">
+        <div class="news-date">2026</div>
+        <div class="news-content">Paper accepted at <strong>CoNLL 2026</strong> &mdash; <em>What Brain Data Adds to Language Model Training</em>.</div>
+      </li>
+      <li class="news-item">
+        <div class="news-date">Aug 2026</div>
+        <div class="news-content">Completed my <strong>M.Sc. in Informatik</strong> at Saarland University (thesis by publication).</div>
+      </li>
       <li class="news-item">
         <div class="news-date">2025</div>
         <div class="news-content">Paper accepted at <strong>NeurIPS 2025</strong> &mdash; <em>Brain-tuning Improves Generalizability and Efficiency of Brain Alignment in Speech Models</em>.</div>
@@ -417,30 +442,38 @@
     <h2 class="section-heading">Publications</h2>
     <ul class="pub-list">
 
-      <!-- ── ICLR 2025 ── -->
+      <!-- ── NeurIPS 2026 ── -->
       <li class="pub-card">
         <div class="pub-logo">
           <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <rect width="72" height="72" rx="8" fill="#0a1a0a"/>
-            <text x="36" y="30" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="18" fill="#3fb950" letter-spacing="-0.5">ICLR</text>
-            <text x="36" y="48" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="12" fill="#3fb95088">2025</text>
-            <rect x="14" y="55" width="44" height="1.5" rx="0.75" fill="#3fb95030"/>
+            <rect width="72" height="72" rx="8" fill="#12081f"/>
+            <!-- Neural network icon -->
+            <g fill="#bc8cff" opacity="0.3">
+              <circle cx="24" cy="20" r="3"/><circle cx="48" cy="20" r="3"/>
+              <circle cx="20" cy="36" r="3"/><circle cx="36" cy="36" r="3"/><circle cx="52" cy="36" r="3"/>
+            </g>
+            <g stroke="#bc8cff" stroke-width="1" opacity="0.2">
+              <line x1="24" y1="20" x2="20" y2="36"/><line x1="24" y1="20" x2="36" y2="36"/><line x1="24" y1="20" x2="52" y2="36"/>
+              <line x1="48" y1="20" x2="20" y2="36"/><line x1="48" y1="20" x2="36" y2="36"/><line x1="48" y1="20" x2="52" y2="36"/>
+            </g>
+            <text x="36" y="54" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="11" fill="#bc8cff" letter-spacing="0.3">NeurIPS</text>
+            <text x="36" y="65" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="10" fill="#bc8cff88">2026</text>
           </svg>
         </div>
         <div class="pub-body">
-          <span class="pub-venue venue-iclr">ICLR 2025</span>
-          <div class="pub-title">Improving Semantic Understanding in Speech Language Models via Brain-tuning</div>
-          <div class="pub-authors"><span class="me">Omer Moussa</span>, Dietrich Klakow, Mariya Toneva</div>
+          <span class="pub-venue venue-neurips">NeurIPS 2026</span>
+          <div class="pub-title">RABBiT: Rapidly Adaptive BOLD Foundation Model via Brain-tuning for Accurate Zero-shot and Few-shot Prediction of Speech-elicited Responses in the Brain</div>
+          <div class="pub-authors"><span class="me">Omer Moussa</span>, Mariya Toneva</div>
           <div class="pub-links">
-            <a href="https://arxiv.org/abs/2410.09230" target="_blank">
+            <a href="https://arxiv.org/abs/2607.05171" target="_blank">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               arXiv
             </a>
-            <a href="https://openreview.net/forum?id=KL8Sm4xRn7" target="_blank">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
-              OpenReview
+            <a href="https://github.com/bridge-ai-neuro/rabbit" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17 4.7 18 5 18 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
+              Code
             </a>
-            <a href="https://arxiv.org/pdf/2410.09230" target="_blank">
+            <a href="https://arxiv.org/pdf/2607.05171" target="_blank">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               PDF
             </a>
@@ -448,37 +481,19 @@
         </div>
       </li>
 
-      <!-- ── Interspeech 2025 ── -->
+      <!-- ── CoNLL 2026 ── -->
       <li class="pub-card">
         <div class="pub-logo">
           <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <rect width="72" height="72" rx="8" fill="#081525"/>
-            <!-- Sound wave icon -->
-            <g stroke="#58a6ff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.35">
-              <line x1="24" y1="20" x2="24" y2="32"/>
-              <line x1="30" y1="16" x2="30" y2="36"/>
-              <line x1="36" y1="13" x2="36" y2="39"/>
-              <line x1="42" y1="16" x2="42" y2="36"/>
-              <line x1="48" y1="20" x2="48" y2="32"/>
-            </g>
-            <text x="36" y="54" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="10" fill="#58a6ff" letter-spacing="0.3">INTERSPEECH</text>
-            <text x="36" y="65" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="10" fill="#58a6ff88">2025</text>
+            <rect width="72" height="72" rx="8" fill="#1f1606"/>
+            <text x="36" y="34" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="16" fill="#e3b341" letter-spacing="-0.3">CoNLL</text>
+            <text x="36" y="51" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="12" fill="#e3b34188">2026</text>
           </svg>
         </div>
         <div class="pub-body">
-          <span class="pub-venue venue-interspeech">Interspeech 2025</span>
-          <div class="pub-title">Brain-tuned Speech Models Better Reflect Speech Processing Stages in the Brain</div>
-          <div class="pub-authors"><span class="me">Omer Moussa</span>, Mariya Toneva</div>
-          <div class="pub-links">
-            <a href="https://arxiv.org/abs/2506.03832" target="_blank">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              arXiv
-            </a>
-            <a href="https://www.isca-archive.org/interspeech_2025/moussa25_interspeech.pdf" target="_blank">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              PDF
-            </a>
-          </div>
+          <span class="pub-venue venue-conll">CoNLL 2026</span>
+          <div class="pub-title">What Brain Data Adds to Language Model Training</div>
+          <div class="pub-authors">Gabriele Merlin, <span class="me">Omer Moussa</span>, Mariya Toneva</div>
         </div>
       </li>
 
@@ -520,6 +535,121 @@
             <a href="https://arxiv.org/pdf/2510.21520" target="_blank">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- ── Interspeech 2025 ── -->
+      <li class="pub-card">
+        <div class="pub-logo">
+          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <rect width="72" height="72" rx="8" fill="#081525"/>
+            <!-- Sound wave icon -->
+            <g stroke="#58a6ff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.35">
+              <line x1="24" y1="20" x2="24" y2="32"/>
+              <line x1="30" y1="16" x2="30" y2="36"/>
+              <line x1="36" y1="13" x2="36" y2="39"/>
+              <line x1="42" y1="16" x2="42" y2="36"/>
+              <line x1="48" y1="20" x2="48" y2="32"/>
+            </g>
+            <text x="36" y="54" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="10" fill="#58a6ff" letter-spacing="0.3">INTERSPEECH</text>
+            <text x="36" y="65" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="10" fill="#58a6ff88">2025</text>
+          </svg>
+        </div>
+        <div class="pub-body">
+          <span class="pub-venue venue-interspeech">Interspeech 2025</span>
+          <div class="pub-title">Brain-tuned Speech Models Better Reflect Speech Processing Stages in the Brain</div>
+          <div class="pub-authors"><span class="me">Omer Moussa</span>, Mariya Toneva</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2506.03832" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              arXiv
+            </a>
+            <a href="https://www.isca-archive.org/interspeech_2025/moussa25_interspeech.pdf" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- ── ICLR 2025 ── -->
+      <li class="pub-card">
+        <div class="pub-logo">
+          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <rect width="72" height="72" rx="8" fill="#0a1a0a"/>
+            <text x="36" y="30" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="18" fill="#3fb950" letter-spacing="-0.5">ICLR</text>
+            <text x="36" y="48" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="12" fill="#3fb95088">2025</text>
+            <rect x="14" y="55" width="44" height="1.5" rx="0.75" fill="#3fb95030"/>
+          </svg>
+        </div>
+        <div class="pub-body">
+          <span class="pub-venue venue-iclr">ICLR 2025</span>
+          <div class="pub-title">Improving Semantic Understanding in Speech Language Models via Brain-tuning</div>
+          <div class="pub-authors"><span class="me">Omer Moussa</span>, Dietrich Klakow, Mariya Toneva</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2410.09230" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              arXiv
+            </a>
+            <a href="https://openreview.net/forum?id=KL8Sm4xRn7" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
+              OpenReview
+            </a>
+            <a href="https://arxiv.org/pdf/2410.09230" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li class="pub-subheading">Preprints</li>
+
+      <!-- ── Preprint 2026 ── -->
+      <li class="pub-card">
+        <div class="pub-logo">
+          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <rect width="72" height="72" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+            <text x="36" y="34" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="16" fill="#c9d1d9" letter-spacing="-0.3">arXiv</text>
+            <text x="36" y="51" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="12" fill="#c9d1d988">2026</text>
+          </svg>
+        </div>
+        <div class="pub-body">
+          <span class="pub-venue venue-preprint">Preprint 2026</span>
+          <div class="pub-title">SCRIBE: Scalable Contextual Representations of Interpretable Brain-Grounded Semantics</div>
+          <div class="pub-authors">Camila Kolling, <span class="me">Omer Moussa</span>, E. &Ccedil;elik, Mariya Toneva</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2610.21518" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              arXiv
+            </a>
+            <a href="https://arxiv.org/pdf/2610.21518" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              PDF
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- ── Preprint 2023 ── -->
+      <li class="pub-card">
+        <div class="pub-logo">
+          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+            <rect width="72" height="72" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+            <text x="36" y="34" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="16" fill="#c9d1d9" letter-spacing="-0.3">arXiv</text>
+            <text x="36" y="51" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="12" fill="#c9d1d988">2023</text>
+          </svg>
+        </div>
+        <div class="pub-body">
+          <span class="pub-venue venue-preprint">Preprint 2023</span>
+          <div class="pub-title">The Right Losses for the Right Gains: Improving the Semantic Consistency of Deep Text-to-Image Generation with Distribution-Sensitive Losses</div>
+          <div class="pub-authors">M. Ahmed, <span class="me">Omer Moussa</span>, I. Shaheen, M. Abdelfattah, A. Abdalla, M. Eid, H. Eraqi, et al.</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2312.10854" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              arXiv
             </a>
           </div>
         </div>
@@ -582,7 +712,7 @@
     <a href="https://github.com/ommoussa" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/omer-moussa" target="_blank">LinkedIn</a>
   </div>
-  <p>&copy; 2025 Omer Moussa. Built with care.</p>
+  <p>&copy; 2026 Omer Moussa. Built with care.</p>
 </footer>
 
 <!-- ── Scripts ── -->
