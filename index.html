@@ -6,32 +6,59 @@
   <title>Omer Moussa — AI &amp; Computational Neuroscience</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    })();
+  </script>
   <style>
+    /* ── Theme tokens (dark is the default; light via [data-theme="light"]) ── */
+    :root {
+      color-scheme: dark;
+      --bg: #0d1117; --bg-alt: #161b22;
+      --border: #21262d; --border-strong: #30363d;
+      --text: #c9d1d9; --text-strong: #f0f6fc; --muted: #8b949e; --faint: #484f58;
+      --accent: #58a6ff; --accent-hover: #79c0ff;
+      --green: #3fb950; --purple: #bc8cff; --yellow: #e3b341;
+      --nav-bg: rgba(13, 17, 23, 0.85); --nav-bg-solid: rgba(13, 17, 23, 0.97);
+      --shadow: rgba(0, 0, 0, .35);
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #ffffff; --bg-alt: #f6f8fa;
+      --border: #d8dee4; --border-strong: #bcc4cc;
+      --text: #31383f; --text-strong: #1f2328; --muted: #59636e; --faint: #818b98;
+      --accent: #0969da; --accent-hover: #0550ae;
+      --green: #1a7f37; --purple: #8250df; --yellow: #9a6700;
+      --nav-bg: rgba(255, 255, 255, 0.85); --nav-bg-solid: rgba(255, 255, 255, 0.97);
+      --shadow: rgba(31, 35, 40, .10);
+    }
+
     /* ── Reset & Base ── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #0d1117;
-      color: #c9d1d9;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
       font-size: 16px;
     }
-    a { color: #58a6ff; text-decoration: none; transition: color .2s; }
-    a:hover { color: #79c0ff; }
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--accent-hover); }
     ::selection { background: #1f6feb44; }
 
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0d1117; }
-    ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
 
     /* ── Navigation ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(13, 17, 23, 0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid #21262d;
+      border-bottom: 1px solid var(--border);
     }
     nav .nav-inner {
       max-width: 1000px; margin: 0 auto;
@@ -39,31 +66,31 @@
       padding: 0 2rem; height: 64px;
     }
     nav .logo {
-      font-weight: 700; font-size: 1.1rem; color: #f0f6fc; letter-spacing: -0.02em;
+      font-weight: 700; font-size: 1.1rem; color: var(--text-strong); letter-spacing: -0.02em;
       display: flex; align-items: center; gap: 0.6rem;
     }
     .nav-avatar {
       width: 34px; height: 34px; border-radius: 50%;
-      border: 2px solid #30363d;
-      background: #161b22;
+      border: 2px solid var(--border-strong);
+      background: var(--bg-alt);
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
       transition: border-color .3s, box-shadow .3s;
     }
     .nav-avatar:hover {
-      border-color: #58a6ff;
+      border-color: var(--accent);
       box-shadow: 0 0 12px rgba(88, 166, 255, 0.25);
     }
-    .nav-avatar svg { width: 22px; height: 22px; }
+    .nav-avatar svg { width: 100%; height: 100%; display: block; }
     nav ul { list-style: none; display: flex; gap: 1.8rem; }
     nav ul li a {
-      color: #8b949e; font-size: 0.875rem; font-weight: 500;
+      color: var(--muted); font-size: 0.875rem; font-weight: 500;
       letter-spacing: 0.02em; transition: color .2s;
     }
-    nav ul li a:hover, nav ul li a.active { color: #f0f6fc; }
+    nav ul li a:hover, nav ul li a.active { color: var(--text-strong); }
 
     /* Mobile nav toggle */
-    .nav-toggle { display: none; background: none; border: none; color: #c9d1d9; cursor: pointer; font-size: 1.5rem; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; font-size: 1.5rem; }
 
     /* ── Hero ── */
     .hero {
@@ -71,7 +98,7 @@
       padding: 120px 2rem 80px;
       background:
         radial-gradient(ellipse 80% 60% at 50% 0%, #1f6feb15 0%, transparent 60%),
-        #0d1117;
+        var(--bg);
     }
     .hero-inner {
       max-width: 1000px; width: 100%;
@@ -82,30 +109,30 @@
       width: 200px; height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #30363d;
+      border: 3px solid var(--border-strong);
       box-shadow: 0 0 40px rgba(31, 111, 235, 0.15);
     }
     .hero-text h1 {
-      font-size: 2.8rem; font-weight: 700; color: #f0f6fc;
+      font-size: 2.8rem; font-weight: 700; color: var(--text-strong);
       letter-spacing: -0.03em; line-height: 1.2;
     }
     .hero-text .subtitle {
-      font-size: 1.15rem; color: #58a6ff; font-weight: 500;
+      font-size: 1.15rem; color: var(--accent); font-weight: 500;
       margin: 0.5rem 0 1rem;
     }
     .hero-text .affiliation {
-      font-size: 0.95rem; color: #8b949e; margin-bottom: 1.5rem;
+      font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem;
     }
     .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .hero-links a {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.5rem 1rem; border-radius: 6px;
       font-size: 0.85rem; font-weight: 500;
-      border: 1px solid #30363d; color: #c9d1d9;
+      border: 1px solid var(--border-strong); color: var(--text);
       transition: all .2s;
     }
     .hero-links a:hover {
-      border-color: #58a6ff; color: #58a6ff;
+      border-color: var(--accent); color: var(--accent);
       background: #58a6ff0a;
     }
     .hero-links a svg { width: 16px; height: 16px; }
@@ -114,61 +141,61 @@
     section { padding: 5rem 2rem; }
     .container { max-width: 1000px; margin: 0 auto; }
     .section-heading {
-      font-size: 1.6rem; font-weight: 700; color: #f0f6fc;
+      font-size: 1.6rem; font-weight: 700; color: var(--text-strong);
       margin-bottom: 2.5rem; letter-spacing: -0.02em;
       display: flex; align-items: center; gap: 0.75rem;
     }
     .section-heading::before {
       content: ''; display: block;
       width: 4px; height: 28px; border-radius: 2px;
-      background: linear-gradient(180deg, #58a6ff, #1f6feb);
+      background: linear-gradient(180deg, var(--accent), #1f6feb);
     }
 
     /* ── About ── */
-    #about { background: #0d1117; }
-    .about-text { font-size: 1.05rem; line-height: 1.85; color: #c9d1d9; max-width: 800px; }
-    .about-text strong { color: #f0f6fc; font-weight: 600; }
+    #about { background: var(--bg); }
+    .about-text { font-size: 1.05rem; line-height: 1.85; color: var(--text); max-width: 800px; }
+    .about-text strong { color: var(--text-strong); font-weight: 600; }
     .research-interests {
       margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;
     }
     .interest-tag {
       padding: 0.35rem 0.85rem; border-radius: 20px;
       font-size: 0.8rem; font-weight: 500;
-      background: #1f6feb15; color: #58a6ff;
+      background: #1f6feb15; color: var(--accent);
       border: 1px solid #1f6feb30;
     }
 
     /* ── News ── */
-    #news { background: #161b22; }
+    #news { background: var(--bg-alt); }
     .news-list { list-style: none; }
     .news-item {
       display: flex; gap: 1.5rem; padding: 1rem 0;
-      border-bottom: 1px solid #21262d;
+      border-bottom: 1px solid var(--border);
     }
     .news-item:last-child { border-bottom: none; }
     .news-date {
       flex-shrink: 0; width: 90px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem; color: #58a6ff; font-weight: 500;
+      font-size: 0.8rem; color: var(--accent); font-weight: 500;
       padding-top: 0.15rem;
     }
-    .news-content { font-size: 0.95rem; color: #c9d1d9; }
-    .news-content strong { color: #f0f6fc; }
+    .news-content { font-size: 0.95rem; color: var(--text); }
+    .news-content strong { color: var(--text-strong); }
 
     /* ── Publications ── */
-    #publications { background: #0d1117; }
+    #publications { background: var(--bg); }
     .pub-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
     .pub-card {
       display: flex; gap: 1.5rem; align-items: flex-start;
       padding: 1.5rem 1.75rem;
       border-radius: 10px;
-      border: 1px solid #21262d;
-      background: #161b22;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
       transition: border-color .3s, box-shadow .3s;
     }
     .pub-card:hover {
-      border-color: #30363d;
-      box-shadow: 0 6px 24px rgba(0,0,0,.35);
+      border-color: var(--border-strong);
+      box-shadow: 0 6px 24px var(--shadow);
     }
     /* Conference logo column */
     .pub-logo {
@@ -185,28 +212,28 @@
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
       margin-bottom: 0.5rem; text-transform: uppercase;
     }
-    .venue-iclr { background: #23863618; color: #3fb950; border: 1px solid #23863635; }
-    .venue-interspeech { background: #1f6feb18; color: #58a6ff; border: 1px solid #1f6feb35; }
-    .venue-neurips { background: #a371f718; color: #bc8cff; border: 1px solid #a371f735; }
-    .venue-conll { background: #d2992218; color: #e3b341; border: 1px solid #d2992235; }
-    .venue-preprint { background: #8b949e18; color: #c9d1d9; border: 1px solid #8b949e35; }
+    .venue-iclr { background: #23863618; color: var(--green); border: 1px solid #23863635; }
+    .venue-interspeech { background: #1f6feb18; color: var(--accent); border: 1px solid #1f6feb35; }
+    .venue-neurips { background: #a371f718; color: var(--purple); border: 1px solid #a371f735; }
+    .venue-conll { background: #d2992218; color: var(--yellow); border: 1px solid #d2992235; }
+    .venue-preprint { background: #8b949e18; color: var(--text); border: 1px solid #8b949e35; }
     .pub-subheading { list-style: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: #8b949e; margin: 1.2rem 0 0.2rem; }
+      text-transform: uppercase; color: var(--muted); margin: 1.2rem 0 0.2rem; }
     .pub-title {
-      font-size: 1.02rem; font-weight: 600; color: #f0f6fc;
+      font-size: 1.02rem; font-weight: 600; color: var(--text-strong);
       margin-bottom: 0.35rem; line-height: 1.55;
     }
-    .pub-authors { font-size: 0.85rem; color: #8b949e; margin-bottom: 0.65rem; }
-    .pub-authors .me { color: #f0f6fc; font-weight: 600; }
+    .pub-authors { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.65rem; }
+    .pub-authors .me { color: var(--text-strong); font-weight: 600; }
     .pub-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .pub-links a {
       display: inline-flex; align-items: center; gap: 0.3rem;
       padding: 0.3rem 0.7rem; border-radius: 5px;
       font-size: 0.75rem; font-weight: 500;
-      border: 1px solid #30363d; color: #8b949e;
+      border: 1px solid var(--border-strong); color: var(--muted);
       transition: all .2s;
     }
-    .pub-links a:hover { border-color: #58a6ff; color: #58a6ff; background: #58a6ff08; }
+    .pub-links a:hover { border-color: var(--accent); color: var(--accent); background: #58a6ff08; }
     .pub-links a svg { width: 13px; height: 13px; }
     @media (max-width: 600px) {
       .pub-card { flex-direction: column; gap: 1rem; }
@@ -214,16 +241,16 @@
     }
 
     /* ── CV ── */
-    #cv { background: #161b22; }
+    #cv { background: var(--bg-alt); }
     .cv-box {
       display: flex; align-items: center; justify-content: space-between;
       padding: 2rem 2.5rem;
       border-radius: 10px;
-      border: 1px solid #21262d;
-      background: linear-gradient(135deg, #0d111700, #1f6feb08);
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, transparent, #1f6feb08);
     }
-    .cv-box-text h3 { font-size: 1.15rem; color: #f0f6fc; margin-bottom: 0.3rem; }
-    .cv-box-text p { font-size: 0.9rem; color: #8b949e; }
+    .cv-box-text h3 { font-size: 1.15rem; color: var(--text-strong); margin-bottom: 0.3rem; }
+    .cv-box-text p { font-size: 0.9rem; color: var(--muted); }
     .cv-download {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.65rem 1.5rem; border-radius: 6px;
@@ -235,7 +262,7 @@
     .cv-download svg { width: 18px; height: 18px; }
 
     /* ── Hobbies ── */
-    #hobbies { background: #0d1117; }
+    #hobbies { background: var(--bg); }
     .hobbies-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem;
@@ -243,26 +270,62 @@
     .hobby-card {
       padding: 1.5rem;
       border-radius: 8px;
-      border: 1px solid #21262d;
-      background: #161b22;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
       text-align: center;
       transition: border-color .2s, transform .2s;
     }
-    .hobby-card:hover { border-color: #30363d; transform: translateY(-2px); }
+    .hobby-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
     .hobby-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .hobby-card h4 { font-size: 0.95rem; color: #f0f6fc; margin-bottom: 0.3rem; }
-    .hobby-card p { font-size: 0.8rem; color: #8b949e; line-height: 1.5; }
+    .hobby-card h4 { font-size: 0.95rem; color: var(--text-strong); margin-bottom: 0.3rem; }
+    .hobby-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
 
     /* ── Footer ── */
     footer {
       padding: 3rem 2rem; text-align: center;
-      border-top: 1px solid #21262d;
-      background: #0d1117;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
     }
     .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; }
-    .footer-links a { color: #8b949e; font-size: 0.85rem; }
-    .footer-links a:hover { color: #58a6ff; }
-    footer p { font-size: 0.8rem; color: #484f58; }
+    .footer-links a { color: var(--muted); font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--accent); }
+    footer p { font-size: 0.8rem; color: var(--faint); }
+
+    /* ── Theme toggle ── */
+    .theme-toggle {
+      margin-left: 1.5rem; width: 34px; height: 34px; flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: none; border: 1px solid var(--border-strong); border-radius: 8px;
+      color: var(--muted); cursor: pointer; transition: color .2s, border-color .2s;
+    }
+    .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+    .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+    nav ul { margin-left: auto; }
+
+    /* Light theme: re-tint the inline SVG logos (CSS beats SVG presentation attributes) */
+    :root[data-theme="light"] svg [fill="#12081f"] { fill: #f4effd; }
+    :root[data-theme="light"] svg [fill="#1f1606"] { fill: #fdf6e3; }
+    :root[data-theme="light"] svg [fill="#081525"] { fill: #eaf3ff; }
+    :root[data-theme="light"] svg [fill="#0a1a0a"] { fill: #eaf7ec; }
+    :root[data-theme="light"] svg [fill="#21262d"] { fill: #f6f8fa; stroke: #d0d7de; }
+    :root[data-theme="light"] svg [fill="#bc8cff"] { fill: #8250df; }
+    :root[data-theme="light"] svg [fill="#bc8cff88"] { fill: #8250df99; }
+    :root[data-theme="light"] svg [stroke="#bc8cff"] { stroke: #8250df; }
+    :root[data-theme="light"] svg [fill="#e3b341"] { fill: #9a6700; }
+    :root[data-theme="light"] svg [fill="#e3b34188"] { fill: #9a670099; }
+    :root[data-theme="light"] svg [fill="#58a6ff"] { fill: #0969da; }
+    :root[data-theme="light"] svg [fill="#58a6ff88"] { fill: #0969da99; }
+    :root[data-theme="light"] svg [stroke="#58a6ff"] { stroke: #0969da; }
+    :root[data-theme="light"] svg [fill="#3fb950"] { fill: #1a7f37; }
+    :root[data-theme="light"] svg [fill="#3fb95088"] { fill: #1a7f3799; }
+    :root[data-theme="light"] svg [fill="#3fb95030"] { fill: #1a7f3730; }
+    :root[data-theme="light"] svg [stroke="#3fb95080"] { stroke: #1a7f3780; }
+    :root[data-theme="light"] svg [fill="#c9d1d9"] { fill: #59636e; }
+    :root[data-theme="light"] svg [fill="#c9d1d988"] { fill: #59636e99; }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
@@ -271,8 +334,10 @@
       .hero-links { justify-content: center; }
       .cv-box { flex-direction: column; gap: 1.5rem; text-align: center; }
       nav ul { display: none; }
-      nav ul.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(13,17,23,0.97); padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid #21262d; }
+      nav ul.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--nav-bg-solid); padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid var(--border); }
       .nav-toggle { display: block; }
+      .theme-toggle { margin-left: auto; margin-right: 0.75rem; order: 2; }
+      .nav-toggle { order: 3; }
     }
 
     /* ── Animations ── */
@@ -290,29 +355,32 @@
   <div class="nav-inner">
     <a href="#" class="logo" style="text-decoration:none;color:inherit;">
       <div class="nav-avatar">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Brain outline (left hemisphere) -->
-          <path d="M20 6C14 6 9 10.5 9 16c0 2.5 1 4.8 2.5 6.5C13 24.5 14 27 14 30h6V6z" fill="#1f6feb18" stroke="#58a6ff" stroke-width="1.2"/>
-          <!-- Brain outline (right hemisphere) -->
-          <path d="M20 6c6 0 11 4.5 11 10 0 2.5-1 4.8-2.5 6.5C27 24.5 26 27 26 30h-6V6z" fill="#a371f712" stroke="#bc8cff" stroke-width="1.2"/>
-          <!-- Neural circuit nodes -->
-          <circle cx="15" cy="14" r="1.8" fill="#58a6ff"/>
-          <circle cx="25" cy="14" r="1.8" fill="#bc8cff"/>
-          <circle cx="20" cy="20" r="2" fill="#3fb950"/>
-          <circle cx="14" cy="24" r="1.4" fill="#58a6ff" opacity="0.7"/>
-          <circle cx="26" cy="24" r="1.4" fill="#bc8cff" opacity="0.7"/>
-          <!-- Circuit connections -->
-          <line x1="15" y1="14" x2="20" y2="20" stroke="#58a6ff" stroke-width="0.8" opacity="0.5"/>
-          <line x1="25" y1="14" x2="20" y2="20" stroke="#bc8cff" stroke-width="0.8" opacity="0.5"/>
-          <line x1="20" y1="20" x2="14" y2="24" stroke="#3fb95080" stroke-width="0.8"/>
-          <line x1="20" y1="20" x2="26" y2="24" stroke="#3fb95080" stroke-width="0.8"/>
-          <!-- Pulse dot animation -->
-          <circle cx="17.5" cy="17" r="0.8" fill="#58a6ff">
-            <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="22.5" cy="17" r="0.8" fill="#bc8cff">
-            <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
-          </circle>
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <defs><clipPath id="av-clip"><circle cx="32" cy="32" r="32"/></clipPath></defs>
+          <g clip-path="url(#av-clip)">
+            <rect width="64" height="64" fill="#efe1c2"/>
+            <path d="M-2 64V27a9 9 0 0 1 18 0v37z" fill="#e2cda2"/>
+            <path d="M48 64V27a9 9 0 0 1 18 0v37z" fill="#e2cda2"/>
+            <path d="M5 64c1.2-10 9.6-15.4 19-16.8h16c9.4 1.4 17.8 6.8 19 16.8z" fill="#2b2833"/>
+            <path d="M26.2 41h11.6v7.2c-2.2 2.6-9.4 2.6-11.6 0z" fill="#9b6552"/>
+            <path d="M24.4 47.4c2.6 3.6 12.6 3.6 15.2 0" stroke="#1b1920" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <path d="M26.6 49.6c1.8 2.6 9 2.6 10.8 0" stroke="#c9c2b4" stroke-width=".5" fill="none" opacity=".8"/>
+            <ellipse cx="19" cy="30.6" rx="2.7" ry="3.9" fill="#ab725d"/>
+            <ellipse cx="45" cy="30.6" rx="2.7" ry="3.9" fill="#ab725d"/>
+            <path d="M19.6 25.6c0-8 5.4-12.8 12.4-12.8s12.4 4.8 12.4 12.8v6.4c0 8-5.6 14-12.4 14s-12.4-6-12.4-14z" fill="#bd8268"/>
+            <path d="M19.6 26.6v5.4c0 8 5.6 14 12.4 14s12.4-6 12.4-14v-5.4c-.9 0-1.5.7-1.7 1.8-.5 3-1.6 5.4-3.5 6.4-1.9-2.4-4.4-3.4-7.2-3.4s-5.3 1-7.2 3.4c-1.9-1-3-3.4-3.5-6.4-.2-1.1-.8-1.8-1.7-1.8z" fill="#3a2e30"/>
+            <path d="M26.4 36.4c1.5 3.4 3.4 4.9 5.6 4.9s4.1-1.5 5.6-4.9c-3.7.9-7.5.9-11.2 0z" fill="#fbf7f0" stroke="#5b2f2b" stroke-width=".7" stroke-linejoin="round"/>
+            <path d="M25.6 35.6c2.1-2 4.2-2.6 6.4-1.8 2.2-.8 4.3-.2 6.4 1.8-2.1.6-4.3.8-6.4.5-2.1.3-4.3.1-6.4-.5z" fill="#2c2325"/>
+            <path d="M31.3 26.2c-.3 2.1-1.3 3.8-1.7 4.8.8.7 2.3.9 3.7.5" stroke="#8b5341" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <ellipse cx="26.6" cy="26.9" rx="1.75" ry="1.45" fill="#1c1614"/>
+            <ellipse cx="37.4" cy="26.9" rx="1.75" ry="1.45" fill="#1c1614"/>
+            <circle cx="27.2" cy="26.4" r=".5" fill="#fff"/>
+            <circle cx="38" cy="26.4" r=".5" fill="#fff"/>
+            <path d="M24.7 28.7c1.3.8 2.6.8 3.9 0M35.4 28.7c1.3.8 2.6.8 3.9 0" stroke="#9a6150" stroke-width=".6" fill="none" stroke-linecap="round"/>
+            <path d="M23.3 23.3c1.8-1.1 4-1.4 6.2-.9M34.5 22.4c2.2-.5 4.4-.2 6.2.9" stroke="#1d181a" stroke-width="1.9" fill="none" stroke-linecap="round"/>
+            <path d="M19.4 26.6c-.6-8.4 4.6-14 12.6-14s13.2 5.6 12.6 14c-.9-3.4-2.4-5.9-4.3-7.3-2.3 1.1-5 1.6-8.3 1.6s-6-.5-8.3-1.6c-1.9 1.4-3.4 3.9-4.3 7.3z" fill="#231e22"/>
+            <g fill="#231e22"><circle cx="21.6" cy="18.6" r="2.2"/><circle cx="24.6" cy="15.6" r="2.4"/><circle cx="28.3" cy="13.9" r="2.5"/><circle cx="32.2" cy="13.4" r="2.5"/><circle cx="36" cy="14" r="2.5"/><circle cx="39.6" cy="15.7" r="2.4"/><circle cx="42.5" cy="18.7" r="2.2"/></g>
+          </g>
         </svg>
       </div>
       omer moussa
@@ -325,6 +393,10 @@
       <li><a href="#cv">CV</a></li>
       <li><a href="#hobbies">Hobbies</a></li>
     </ul>
+    <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -697,9 +769,29 @@
         <p>Lifelong football fan and player &mdash; always up for a pickup game.</p>
       </div>
       <div class="hobby-card">
+        <div class="hobby-icon">&#127952;</div>
+        <h4>Volleyball</h4>
+        <p>Love a fast team game on any court.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">&#127946;</div>
+        <h4>Swimming</h4>
+        <p>My favorite way to unwind and stay active.</p>
+      </div>
+      <div class="hobby-card">
         <div class="hobby-icon">&#127932;</div>
         <h4>Music</h4>
         <p>Enjoy listening to and exploring a wide range of genres.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">&#127916;</div>
+        <h4>Documentaries</h4>
+        <p>Hooked on a good documentary, whatever the topic.</p>
+      </div>
+      <div class="hobby-card">
+        <div class="hobby-icon">&#128218;</div>
+        <h4>Reading</h4>
+        <p>Books on science, philosophy, and the occasional novel.</p>
       </div>
       <div class="hobby-card">
         <div class="hobby-icon">&#127758;</div>
@@ -707,9 +799,9 @@
         <p>Love exploring new places, cultures, and cuisines.</p>
       </div>
       <div class="hobby-card">
-        <div class="hobby-icon">&#128218;</div>
-        <h4>Reading</h4>
-        <p>Books on science, philosophy, and the occasional novel.</p>
+        <div class="hobby-icon">&#127918;</div>
+        <h4>Video &amp; Board Games</h4>
+        <p>From video games to board-game nights with friends.</p>
       </div>
     </div>
   </div>
@@ -728,6 +820,21 @@
 
 <!-- ── Scripts ── -->
 <script>
+  // Light / dark theme toggle (choice remembered in localStorage)
+  const themeBtn = document.querySelector('.theme-toggle');
+  const currentTheme = () => document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  const labelTheme = () => {
+    const label = currentTheme() === 'light' ? 'Switch to dark theme' : 'Switch to light theme';
+    themeBtn.setAttribute('aria-label', label); themeBtn.title = label;
+  };
+  themeBtn.addEventListener('click', () => {
+    const next = currentTheme() === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    labelTheme();
+  });
+  labelTheme();
+
   // Mobile nav toggle
   document.querySelector('.nav-toggle').addEventListener('click', () => {
     document.querySelector('nav ul').classList.toggle('open');
