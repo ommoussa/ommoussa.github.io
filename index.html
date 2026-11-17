@@ -81,7 +81,7 @@
       border-color: var(--accent);
       box-shadow: 0 0 12px rgba(88, 166, 255, 0.25);
     }
-    .nav-avatar svg { width: 100%; height: 100%; display: block; }
+    .nav-avatar svg, .nav-avatar img { width: 100%; height: 100%; display: block; }
     nav ul { list-style: none; display: flex; gap: 1.8rem; }
     nav ul li a {
       color: var(--muted); font-size: 0.875rem; font-weight: 500;
@@ -355,33 +355,7 @@
   <div class="nav-inner">
     <a href="#" class="logo" style="text-decoration:none;color:inherit;">
       <div class="nav-avatar">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <defs><clipPath id="av-clip"><circle cx="32" cy="32" r="32"/></clipPath></defs>
-          <g clip-path="url(#av-clip)">
-            <rect width="64" height="64" fill="#efe1c2"/>
-            <path d="M-2 64V27a9 9 0 0 1 18 0v37z" fill="#e2cda2"/>
-            <path d="M48 64V27a9 9 0 0 1 18 0v37z" fill="#e2cda2"/>
-            <path d="M5 64c1.2-10 9.6-15.4 19-16.8h16c9.4 1.4 17.8 6.8 19 16.8z" fill="#2b2833"/>
-            <path d="M26.2 41h11.6v7.2c-2.2 2.6-9.4 2.6-11.6 0z" fill="#9b6552"/>
-            <path d="M24.4 47.4c2.6 3.6 12.6 3.6 15.2 0" stroke="#1b1920" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-            <path d="M26.6 49.6c1.8 2.6 9 2.6 10.8 0" stroke="#c9c2b4" stroke-width=".5" fill="none" opacity=".8"/>
-            <ellipse cx="19" cy="30.6" rx="2.7" ry="3.9" fill="#ab725d"/>
-            <ellipse cx="45" cy="30.6" rx="2.7" ry="3.9" fill="#ab725d"/>
-            <path d="M19.6 25.6c0-8 5.4-12.8 12.4-12.8s12.4 4.8 12.4 12.8v6.4c0 8-5.6 14-12.4 14s-12.4-6-12.4-14z" fill="#bd8268"/>
-            <path d="M19.6 26.6v5.4c0 8 5.6 14 12.4 14s12.4-6 12.4-14v-5.4c-.9 0-1.5.7-1.7 1.8-.5 3-1.6 5.4-3.5 6.4-1.9-2.4-4.4-3.4-7.2-3.4s-5.3 1-7.2 3.4c-1.9-1-3-3.4-3.5-6.4-.2-1.1-.8-1.8-1.7-1.8z" fill="#3a2e30"/>
-            <path d="M26.4 36.4c1.5 3.4 3.4 4.9 5.6 4.9s4.1-1.5 5.6-4.9c-3.7.9-7.5.9-11.2 0z" fill="#fbf7f0" stroke="#5b2f2b" stroke-width=".7" stroke-linejoin="round"/>
-            <path d="M25.6 35.6c2.1-2 4.2-2.6 6.4-1.8 2.2-.8 4.3-.2 6.4 1.8-2.1.6-4.3.8-6.4.5-2.1.3-4.3.1-6.4-.5z" fill="#2c2325"/>
-            <path d="M31.3 26.2c-.3 2.1-1.3 3.8-1.7 4.8.8.7 2.3.9 3.7.5" stroke="#8b5341" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <ellipse cx="26.6" cy="26.9" rx="1.75" ry="1.45" fill="#1c1614"/>
-            <ellipse cx="37.4" cy="26.9" rx="1.75" ry="1.45" fill="#1c1614"/>
-            <circle cx="27.2" cy="26.4" r=".5" fill="#fff"/>
-            <circle cx="38" cy="26.4" r=".5" fill="#fff"/>
-            <path d="M24.7 28.7c1.3.8 2.6.8 3.9 0M35.4 28.7c1.3.8 2.6.8 3.9 0" stroke="#9a6150" stroke-width=".6" fill="none" stroke-linecap="round"/>
-            <path d="M23.3 23.3c1.8-1.1 4-1.4 6.2-.9M34.5 22.4c2.2-.5 4.4-.2 6.2.9" stroke="#1d181a" stroke-width="1.9" fill="none" stroke-linecap="round"/>
-            <path d="M19.4 26.6c-.6-8.4 4.6-14 12.6-14s13.2 5.6 12.6 14c-.9-3.4-2.4-5.9-4.3-7.3-2.3 1.1-5 1.6-8.3 1.6s-6-.5-8.3-1.6c-1.9 1.4-3.4 3.9-4.3 7.3z" fill="#231e22"/>
-            <g fill="#231e22"><circle cx="21.6" cy="18.6" r="2.2"/><circle cx="24.6" cy="15.6" r="2.4"/><circle cx="28.3" cy="13.9" r="2.5"/><circle cx="32.2" cy="13.4" r="2.5"/><circle cx="36" cy="14" r="2.5"/><circle cx="39.6" cy="15.7" r="2.4"/><circle cx="42.5" cy="18.7" r="2.2"/></g>
-          </g>
-        </svg>
+        <img src="avatar.svg" alt="" width="30" height="30" decoding="async">
       </div>
       omer moussa
     </a>
@@ -555,6 +529,10 @@
             <a href="https://arxiv.org/abs/2607.05171" target="_blank">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               arXiv
+            </a>
+            <a href="https://bridge-ai-neuro.github.io/rabbit/" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              Website
             </a>
             <a href="https://github.com/bridge-ai-neuro/rabbit" target="_blank">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17 4.7 18 5 18 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
